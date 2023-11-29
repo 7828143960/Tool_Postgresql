@@ -1,7 +1,5 @@
 ---
 plugin: aws_ec2
-aws_access_key: AKIAR6H4UBJZVOP2EEWL
-aws_secret_key: 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
 regions:
   - ap-northeast-1
 # hostnames:
