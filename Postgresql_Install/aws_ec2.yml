@@ -1,0 +1,14 @@
+---
+plugin: aws_ec2
+aws_access_key: AKIAR6H4UBJZVOP2EEWL
+aws_secret_key: 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
+regions:
+  - ap-northeast-1
+# hostnames:
+#   - ip-address
+include_filters:
+# This includes everything in the inventory that has the following tags.
+# - tag:DB:   #Format Multiple Tags Use.
+#     - 'pg'
+- tag:DB:   
+    - 'Postgresql'
