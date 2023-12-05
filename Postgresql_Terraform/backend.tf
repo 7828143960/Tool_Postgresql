@@ -2,7 +2,7 @@ terraform {
 
   backend "s3" {
 
-    bucket         = "terraform-bucket-830309"
+    bucket         = "terraform-bucket-83030"
 
     key            = "Postgresql/terraform.tfstate"
 
