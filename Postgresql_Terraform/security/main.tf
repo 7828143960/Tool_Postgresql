@@ -83,20 +83,20 @@ resource "aws_instance" "private-ec2" {
 
 # Genrate Key
 resource "tls_private_key" "rsa_4096" {
-  count     = fileexists("${var.key_name}.pem") ? 0 : 1
   algorithm = "RSA"
   rsa_bits  = 4096
 }
 
+# Genrate pen Key 
 resource "aws_key_pair" "key_pair" {
-  count     = tls_private_key.rsa_4096[0] ? 1 : 0
   key_name   = var.key_name
-  public_key = tls_private_key.rsa_4096[0].public_key_openssh
+  public_key = tls_private_key.rsa_4096.public_key_openssh
 }
 
+# pem Key download in sysytem
 resource "local_file" "private_key" {
-  count    = tls_private_key.rsa_4096[0] ? 1 : 0
-  content  = tls_private_key.rsa_4096[0].private_key_pem
+  content = tls_private_key.rsa_4096.private_key_pem
   filename = var.key_name
 }
+
 
